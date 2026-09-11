@@ -1,0 +1,494 @@
+@font-face {
+  font-family: "inter";
+  src: url(../fonts/Inter_18pt-Regular.ttf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "inter";
+  src: url(../fonts/Inter_18pt-Medium.ttf);
+  font-weight: 500;
+}
+@font-face {
+  font-family: "inter";
+  src: url(../fonts/Inter_18pt-SemiBold.ttf);
+  font-weight: 600;
+}
+@font-face {
+  font-family: "inter";
+  src: url(../fonts/Inter_18pt-Bold.ttf);
+  font-weight: 700;
+}
+body {
+  font-family: var(--font-family);
+  background-color: #f3f6fa;
+}
+:root {
+  --font-family: "inter";
+  --mainColor: #1d293d;
+  --secondaryColor: #90a1b9;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+}
+.valid {
+  outline: 3px solid #625fff;
+}
+
+.invalid {
+  outline: 3px solid #fb2c36;
+}
+
+.msg {
+  margin-top: 5px;
+  color: #fb2c36;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.msgDate {
+  margin-top: 5px;
+  color: #fb2c36;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: right;
+  margin-top: -10px;
+  margin-right: 50px;
+}
+
+#navbar {
+  background: linear-gradient(to right, #4f39f6, #9810fa);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  box-shadow:
+    0 4px 6px -1px #0000001a,
+    0 2px 4px -2px #0000001a;
+}
+
+#navbar .logo h1 {
+  font-weight: 700;
+  color: white;
+  font-size: 20px;
+  margin: 0;
+}
+
+#navbar .btn {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #b15cf6;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+#navbar #btnDisplay:hover {
+  background-color: #b660fc;
+}
+
+#ModalTask h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--mainColor);
+}
+
+#ModalTask form label {
+  color: #314158;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#ModalTask form input,
+#ModalTask form select,
+#ModalTask form textarea {
+  padding: 10px;
+  border: 1px solid #cad5e3;
+  box-shadow: none;
+  border-radius: 10px;
+}
+
+#ModalTask form input:focus,
+#ModalTask form select:focus,
+#ModalTask form textarea:focus {
+  outline: 3px solid #625fff;
+}
+
+#ModalTask form input::placeholder,
+#ModalTask form textarea::placeholder {
+  color: #bac4d3;
+}
+
+#ModalTask form textarea {
+  resize: none;
+}
+
+#ModalTask form .number {
+  display: block;
+  color: #90a1b9;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: right;
+  margin-top: 8px;
+}
+#ModalTask .btnsModal button {
+  padding: 10px 10px;
+  border-radius: 10px;
+  border: none;
+  transition: 0.3s;
+}
+
+#ModalTask .btnsModal .btnCancel {
+  background-color: #f9f3f4;
+  color: #314158;
+}
+
+#ModalTask .btnsModal .btnCancel:hover {
+  background-color: #e2e8f0;
+}
+
+#ModalTask .btnsModal .btnAdd,
+#ModalTask .btnsModal .btnUpdate {
+  background-color: #4f39f6;
+  color: white;
+}
+
+#ModalTask .btnsModal .btnAdd:hover,
+#ModalTask .btnsModal .btnUpdate:hover {
+  background-color: #432dd7;
+}
+
+#header .myrow {
+  margin-top: 60px;
+  align-items: stretch;
+}
+#header .myCard {
+  width: 100%;
+  min-height: 100dvh;
+  background-color: #fafbfd;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow:
+    0 1px 3px 0 #0000001a,
+    0 1px 2px -1px #0000001a;
+}
+
+#header .myCard .text h2 {
+  color: var(--mainColor);
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+#header .myCard .numberOfTasks {
+  color: var(--secondaryColor);
+  font-size: 12px;
+  font-weight: 400;
+  display: block;
+}
+
+#header .myCard .iconTodo {
+  background-color: #f0f5f9;
+}
+#header .myCard .iconInProgress {
+  background-color: #fffbeb;
+}
+
+#header .myCard .iconCompleted {
+  background-color: #ecfdf4;
+}
+#header .myCard .info {
+  margin-top: 70px;
+}
+#header .myCard .info .infoText {
+  color: var(--secondaryColor);
+  font-weight: 400;
+}
+
+#header .myCard .info .no {
+  font-size: 14px;
+}
+
+#header .myCard .info .add {
+  font-size: 12px;
+}
+
+#header .rowData .cardTask {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow:
+    rgb(253, 231, 232) 0px 2px 0px 1px,
+    rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.1) 0px 1px 2px -1px;
+  transition: 0.3s;
+}
+
+#header .rowData .cardTask:hover .btnsCard button {
+  opacity: 1;
+}
+
+#header .cardTask .ball {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+}
+#header .cardTask .ballTodo {
+  background-color: #cad5e3;
+}
+
+#header .cardTask .ballProgress {
+  background-color: #ffb900;
+}
+
+#header .cardTask .ballCompleted {
+  background-color: #3dcc9e;
+}
+#header .cardTask .index {
+  color: var(--secondaryColor);
+  font-size: 10px;
+  font-weight: 500;
+}
+
+#header .cardTask .btnsCard button {
+  border: none;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+#header .cardTask .btnsCard button i {
+  font-size: 12px;
+  color: #91a2ba;
+  transition: 0.3s;
+}
+
+#header .cardTask .btnsCard .btnPen:hover i {
+  color: #625fff;
+}
+#header .cardTask .btnsCard .btnPen:hover {
+  background-color: #eef2ff;
+  border-radius: 10px;
+}
+
+#header .cardTask .btnsCard .btnTrach:hover i {
+  color: #fa2c36;
+}
+#header .cardTask .btnsCard .btnTrach:hover {
+  background-color: #fef2f2;
+  border-radius: 10px;
+}
+
+#header .cardTask h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--mainColor);
+  margin-top: 10px;
+}
+
+#header .cardTask .notes {
+  font-size: 14px;
+  font-weight: 400;
+  color: #62748e;
+  display: block;
+  margin-bottom: 8px;
+}
+
+#header .cardTask .priorityCard {
+  border-radius: 15px;
+  width: fit-content;
+  padding: 8px 10px;
+}
+
+#header .cardTask .priority .ball {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+}
+
+#header .cardTask .priority .ballLow {
+  background-color: #2b7fff;
+}
+#header .cardTask .priority .ballMedium {
+  background-color: #fd9900;
+}
+
+#header .cardTask .priority .ballHigh {
+  background-color: #fa2c36;
+}
+
+#header .cardTask .name {
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.Low {
+  background-color: #eff6ff;
+  color: #2b7fff;
+}
+
+.Medium {
+  background-color: #fffbeb;
+  color: #fd9900;
+}
+
+.High {
+  background-color: #fef2f2;
+  color: #fa2c36;
+}
+
+#header .cardTask .overdue {
+  background-color: #ffe2e2;
+  color: #fa2c36;
+  border-radius: 15px;
+  width: fit-content;
+  padding: 5px 8px;
+}
+
+#header .cardTask .over {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+#header .cardTask .overdue span:nth-child(1) i {
+  font-size: 10px;
+  display: block;
+  margin-top: -2px;
+}
+
+#header .cardTask .duesoon {
+  background-color: #ffedd4;
+  color: #e55c00;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 15px;
+  width: fit-content;
+  padding: 5px 8px;
+}
+
+#header .cardTask .date {
+  color: #f97200;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+#header .cardTask .done {
+  background-color: #dbfbec;
+  color: #096;
+  border-radius: 15px;
+  width: fit-content;
+  padding: 2px 4px;
+}
+
+#header .cardTask .done {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+#header .cardTask .time {
+  color: var(--secondaryColor);
+  font-size: 12px;
+  font-weight: 400;
+}
+#header .cardTask .btnsFooter {
+  border-top: 1px solid #f0f5f9;
+  padding-top: 12px;
+}
+#header .cardTask .btnsFooter button {
+  border: none;
+  background-color: transparent;
+}
+
+#header .cardTask .start,
+#header .cardTask .complete,
+#header .cardTask .todo {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 8px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+#header .cardTask .start {
+  background-color: #fef3c6;
+}
+
+#header .cardTask .complete {
+  background-color: #d0fae5;
+}
+
+#header .cardTask .todo {
+  background-color: #f9f3f4;
+}
+
+#header .cardTask .start button {
+  color: #bb4d00;
+}
+
+#header .cardTask .todo button {
+  color: #314158;
+}
+
+#header .cardTask .complete button {
+  color: #007a55;
+}
+
+#header .cardTask .start:hover {
+  background-color: #fee685;
+  transform: scale(1.1);
+}
+
+#header .cardTask .todo:hover {
+  background-color: #e2e8f0;
+  transform: scale(1.1);
+}
+
+#header .cardTask .complete:hover {
+  background-color: #a4f4cf;
+  transform: scale(1.1);
+}
+
+#updateToast,
+#successToast {
+  border: none;
+  top: 8px;
+  right: 20px;
+  width: fit-content;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #00bc7d;
+  color: white;
+  z-index: 10;
+  transition: 0.3s;
+}
+
+#footer .footer {
+  background-color: #182337;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+#footer .footer p {
+  color: var(--secondaryColor);
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 0;
+}
