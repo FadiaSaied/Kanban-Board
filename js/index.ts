@@ -107,7 +107,7 @@ function displayTasks(arr: Task[]): void {
                                 : "ballCompleted"
                           }"
                                 ></span>
-                           <span class="index">#00${index}</span>
+                           <span class="index">#00${index + 1}</span>
                           </div>
                         <div
                           class="btnsCard d-flex align-items-center flex-wrap gap-1"
