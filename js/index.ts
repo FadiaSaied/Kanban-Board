@@ -57,8 +57,6 @@ function createTask() {
         status: "todo",
       };
 
-      console.log(task.calcTime);
-
       collectedTasks.push(task);
       const modalElement = document.getElementById("ModalTask") as HTMLElement;
 
@@ -69,7 +67,6 @@ function createTask() {
       toast.show();
       displayTasks(collectedTasks);
       localStorage.setItem("task", JSON.stringify(collectedTasks));
-      console.log(collectedTasks);
       clearForm();
     }
   });
@@ -435,7 +432,7 @@ function deleteTask(i: number): void {
 }
 
 function setInfo(i: number): void {
-  console.log(i);
+
   currentIndex = i;
 
   taskNameInput.value = collectedTasks[i]?.name!;

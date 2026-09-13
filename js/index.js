@@ -33,7 +33,6 @@ function createTask() {
                 calcTime: new Date().toISOString(),
                 status: "todo",
             };
-            console.log(task.calcTime);
             collectedTasks.push(task);
             const modalElement = document.getElementById("ModalTask");
             const modal = bootstrap.Modal.getInstance(modalElement);
@@ -42,7 +41,6 @@ function createTask() {
             toast.show();
             displayTasks(collectedTasks);
             localStorage.setItem("task", JSON.stringify(collectedTasks));
-            console.log(collectedTasks);
             clearForm();
         }
     });
@@ -181,7 +179,7 @@ function displayTasks(arr) {
                                 <button
                                   type="button"
                                   class="btnTodo"
-                                  onclick="changeToTOdo(${index})"
+                                  onclick="changeTodo(${index})"
                                 >
                                   To Do
                                 </button>
@@ -375,7 +373,6 @@ function deleteTask(i) {
 }
 function setInfo(i) {
     var _a, _b, _c, _d;
-    console.log(i);
     currentIndex = i;
     taskNameInput.value = (_a = collectedTasks[i]) === null || _a === void 0 ? void 0 : _a.name;
     taskLevelInput.value = (_b = collectedTasks[i]) === null || _b === void 0 ? void 0 : _b.level;
