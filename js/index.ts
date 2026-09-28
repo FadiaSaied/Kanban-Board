@@ -89,6 +89,7 @@ function displayTasks(arr: Task[]): void {
   let Completedbox: string = "";
 
   arr.forEach((task: Task, index: number) => {
+    
     let box: string = ` <div class="col-12">
                   <div class="inner">
                     <div class="task cardTask">
@@ -159,6 +160,8 @@ function displayTasks(arr: Task[]): void {
             <span>Done</span>
           </div>
         `
+        : task.date === "" ? ""
+     
         : task.date <= todayPlus!
           ? `
             <div class="overdue d-flex justify-content-center align-items-center gap-1">
@@ -177,29 +180,44 @@ function displayTasks(arr: Task[]): void {
     }
   </div>
 </div>
-                      <div
-                        class="dataAndTime my-3 d-flex align-items-center gap-4" 
-                      >
-                        <div class="date d-flex align-items-center gap-1 " style="color: ${
-                          task.date <= todayPlus!
-                            ? "#FA2C36"
-                            : task.date <= after!
-                              ? "#FF6800"
-                              : "#90A1B8"
-                        }">
-                          <span><i class="fa-regular fa-calendar"></i></span>
-                          <span>${formatDate(task.date)}</span>
-                        </div>
-                        <div class="time d-flex align-items-center gap-1">
-                          <span
-                            ><i
-                              class="fa-regular fa-clock"
-                              style="color: #8fa0b8"
-                            ></i
-                          ></span>
-                          <span>${getTimeAgo(task.calcTime)}</span>
-                        </div>
-                      </div>
+                     <div
+  class="dataAndTime my-3 d-flex align-items-center gap-4"
+>
+  ${
+    task.date
+      ? `
+        <div
+          class="date d-flex align-items-center gap-1"
+          style="color: ${
+            task.date <= todayPlus!
+              ? "#FA2C36"
+              : task.date <= after!
+                ? "#FF6800"
+                : "#90A1B8"
+          }"
+        >
+          <span>
+            <i class="fa-regular fa-calendar"></i>
+          </span>
+
+          <span>${formatDate(task.date)}</span>
+        </div>
+      `
+      : ""
+  }
+
+  <div class="time d-flex align-items-center gap-1">
+    <span>
+      <i
+        class="fa-regular fa-clock"
+        style="color: #8fa0b8"
+      ></i>
+    </span>
+
+    <span>${getTimeAgo(task.calcTime)}</span>
+  </div>
+</div>
+                         
                       
                       <div
                         class="btnsFooter d-flex align-items-center gap-2 flex-wrap"
@@ -456,7 +474,7 @@ function UpdatedTask(): void {
         level: taskLevelInput.value,
         date: taskDateInput.value,
         description: taskDesInput.value,
-        calcTime: new Date().toISOString(),
+        calcTime: collectedTasks[currentIndex]!.calcTime,
         status: collectedTasks[currentIndex]!.status,
       };
 
