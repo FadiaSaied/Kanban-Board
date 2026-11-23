@@ -89,7 +89,6 @@ function displayTasks(arr: Task[]): void {
   let Completedbox: string = "";
 
   arr.forEach((task: Task, index: number) => {
-    
     let box: string = ` <div class="col-12">
                   <div class="inner">
                     <div class="task cardTask">
@@ -160,10 +159,10 @@ function displayTasks(arr: Task[]): void {
             <span>Done</span>
           </div>
         `
-        : task.date === "" ? ""
-     
-        : task.date <= todayPlus!
-          ? `
+        : task.date === ""
+          ? ""
+          : task.date <= todayPlus!
+            ? `
             <div class="overdue d-flex justify-content-center align-items-center gap-1">
               <span>
                 <i
@@ -174,9 +173,9 @@ function displayTasks(arr: Task[]): void {
               <span class="over">Overdue</span>
             </div>
           `
-          : task.date <= after!
-            ? `<span class="duesoon badge">Due Soon</span>`
-            : ``
+            : task.date <= after!
+              ? `<span class="duesoon badge">Due Soon</span>`
+              : ``
     }
   </div>
 </div>
@@ -234,7 +233,7 @@ function displayTasks(arr: Task[]): void {
                                 <button
                                   type="button"
                                   class="btnTodo"
-                                  onclick="changeToTOdo(${index})"
+                                  onclick="changeTodo(${index})"
                                 >
                                   To Do
                                 </button>
@@ -450,7 +449,6 @@ function deleteTask(i: number): void {
 }
 
 function setInfo(i: number): void {
-
   currentIndex = i;
 
   taskNameInput.value = collectedTasks[i]?.name!;
